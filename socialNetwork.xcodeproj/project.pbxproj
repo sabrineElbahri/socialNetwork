@@ -15,6 +15,7 @@
 		CC89EBA41D830F910006D761 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89EB9D1D830F910006D761 /* FBSDKCoreKit.framework */; };
 		CC89EBA51D830F910006D761 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89EB9E1D830F910006D761 /* FBSDKLoginKit.framework */; };
 		CC89EBA61D830F910006D761 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89EB9F1D830F910006D761 /* FBSDKShareKit.framework */; };
+		CC89EBAB1D8320050006D761 /* PrintingSomething.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89EBAA1D8320050006D761 /* PrintingSomething.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CC89EB9D1D830F910006D761 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Carthage/Build/iOS/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CC89EB9E1D830F910006D761 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Carthage/Build/iOS/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CC89EB9F1D830F910006D761 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Carthage/Build/iOS/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		CC89EBAA1D8320050006D761 /* PrintingSomething.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrintingSomething.swift; path = ../PrintingSomething.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		CC89EB851D82F7440006D761 /* socialNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				CC89EBAA1D8320050006D761 /* PrintingSomething.swift */,
 				CC89EB861D82F7440006D761 /* socialNetwork.h */,
 				CC89EB881D82F7440006D761 /* Info.plist */,
 			);
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC89EBAB1D8320050006D761 /* PrintingSomething.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
