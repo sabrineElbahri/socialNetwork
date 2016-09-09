@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SVProgressHUD
 
 public class PrintingSomething {
     
@@ -16,5 +17,6 @@ public class PrintingSomething {
     
     public func youhou() -> Void {
         print("social network")
+        SVProgressHUD.showSuccessWithStatus("Social Network")
     }
 }
