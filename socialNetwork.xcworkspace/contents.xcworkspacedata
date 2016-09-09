@@ -4,4 +4,7 @@
    <FileRef
       location = "container:socialNetwork.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/facebook-sdk-swift/FacebookSwift.xcodeproj">
+   </FileRef>
 </Workspace>
