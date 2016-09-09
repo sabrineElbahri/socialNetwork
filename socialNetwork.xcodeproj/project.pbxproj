@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CC89EB871D82F7440006D761 /* socialNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = CC89EB861D82F7440006D761 /* socialNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC89EBAB1D8320050006D761 /* PrintingSomething.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89EBAA1D8320050006D761 /* PrintingSomething.swift */; };
+		CC89EC151D8344280006D761 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89EC141D8344280006D761 /* SVProgressHUD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		CC89EB9E1D830F910006D761 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Carthage/Build/iOS/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CC89EB9F1D830F910006D761 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Carthage/Build/iOS/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		CC89EBAA1D8320050006D761 /* PrintingSomething.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrintingSomething.swift; path = ../PrintingSomething.swift; sourceTree = "<group>"; };
+		CC89EC141D8344280006D761 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC89EC151D8344280006D761 /* SVProgressHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +42,7 @@
 		CC89EB791D82F7440006D761 = {
 			isa = PBXGroup;
 			children = (
+				CC89EC141D8344280006D761 /* SVProgressHUD.framework */,
 				CC89EBA71D830FD80006D761 /* frameworks */,
 				CC89EB851D82F7440006D761 /* socialNetwork */,
 				CC89EB841D82F7440006D761 /* Products */,
@@ -261,6 +265,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = socialNetwork/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -280,6 +288,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = socialNetwork/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
