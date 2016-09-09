@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 
 public class PrintingSomething {
-    public func youhou() {
+    
+    public init () {
+    }
+    
+    public func youhou() -> Void {
         print("social network")
     }
 }
