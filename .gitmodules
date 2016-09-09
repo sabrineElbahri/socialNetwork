@@ -1,9 +1,0 @@
-[submodule "Carthage/Checkouts/Bolts-ObjC"]
-	path = Carthage/Checkouts/Bolts-ObjC
-	url = https://github.com/BoltsFramework/Bolts-ObjC.git
-[submodule "Carthage/Checkouts/facebook-ios-sdk"]
-	path = Carthage/Checkouts/facebook-ios-sdk
-	url = https://github.com/facebook/facebook-ios-sdk.git
-[submodule "Carthage/Checkouts/facebook-sdk-swift"]
-	path = Carthage/Checkouts/facebook-sdk-swift
-	url = https://github.com/facebook/facebook-sdk-swift.git

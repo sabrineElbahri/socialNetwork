@@ -8,10 +8,6 @@
 
 import Foundation
 import UIKit
-import Bolts
-import FacebookLogin
-import FacebookCore
-import FacebookShare
 
 public class PrintingSomething {
     public func youhou() {
