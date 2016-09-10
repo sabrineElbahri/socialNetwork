@@ -12,10 +12,6 @@ import SVProgressHUD
 import FacebookShare
 import FacebookCore
 import FacebookLogin
-import Bolts
-import FBSDKShareKit
-import FBSDKCoreKit
-import FBSDKLoginKit
 
 public class PrintingSomething {
     
@@ -25,5 +21,6 @@ public class PrintingSomething {
     public func youhou() -> Void {
         print("social network")
         SVProgressHUD.showSuccessWithStatus("Social Network")
+    
     }
 }
