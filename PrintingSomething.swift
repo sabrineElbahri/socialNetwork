@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 import SVProgressHUD
+import FacebookShare
+import FacebookCore
+import FacebookLogin
+import Bolts
+import FBSDKShareKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 public class PrintingSomething {
     

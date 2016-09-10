@@ -7,4 +7,7 @@
    <FileRef
       location = "group:Carthage/Checkouts/SVProgressHUD/SVProgressHUD.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/Facebook-sdk-swift/FacebookSwift.xcodeproj">
+   </FileRef>
 </Workspace>

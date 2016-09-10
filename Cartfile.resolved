@@ -1,1 +1,4 @@
+github "BoltsFramework/Bolts-ObjC" "1.8.4"
 github "SVProgressHUD/SVProgressHUD" "2.0.3"
+github "facebook/facebook-ios-sdk" "sdk-version-4.15.1"
+github "facebook/Facebook-sdk-swift" "0.1.1"
