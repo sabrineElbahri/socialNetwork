@@ -14,7 +14,7 @@ import FacebookLogin
 
 public class LogInWithFacebook {
     
-    private var userId: AnyObject?
+    private var userId: String?
     private var userEmail: AnyObject?
     private var userFirstName: AnyObject?
     private var userLastName: AnyObject?
@@ -48,18 +48,20 @@ public class LogInWithFacebook {
                 graphRequest.start { (httpResponse, result) -> Void in
                     switch result {
                     case .Success(let response):
-                        if let userId: AnyObject = response.dictionaryValue!["id"] {
+                        
+                        debugPrint("id: \(response.dictionaryValue?["id"])")
+                        if let userId: String = response.dictionaryValue?["id"] as? String {
                             self.userId = userId
                         }
-                        if let userEmail: AnyObject = response.dictionaryValue!["email"] {
+                        if let userEmail: AnyObject = response.dictionaryValue?["email"] {
                             self.userEmail = userEmail
                         }
                         
-                        if let userFirstName: AnyObject = response.dictionaryValue!["first_name"] {
+                        if let userFirstName: AnyObject = response.dictionaryValue?["first_name"] {
                             self.userFirstName = userFirstName
                         }
                         
-                        if let userLastName: AnyObject = response.dictionaryValue!["last_name"] {
+                        if let userLastName: AnyObject = response.dictionaryValue?["last_name"] {
                             self.userLastName = userLastName
                         }
                         
@@ -78,16 +80,17 @@ public class LogInWithFacebook {
     }
 
     
-    public func getFacebookId() -> Int {
-        return userId as! Int
+    public func getFacebookId() -> String {
+        return userId!
+        
     }
     
     public func getFacebookEmail() -> String {
-        return userEmail as! String
+        return userEmail! as! String
     }
     
     public func getFacebookFirstName() -> String {
-        return userFirstName as! String
+        return userFirstName! as! String
     }
     
     public func getFacebookLastName() -> String {
