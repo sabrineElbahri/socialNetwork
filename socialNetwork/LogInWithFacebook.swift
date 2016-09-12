@@ -64,19 +64,19 @@ public class LogInWithFacebook {
     
 
     public func getFacebookIdFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
-        return "(\(userInfo["id"]!)"
+        return "\(userInfo["id"]!)"
     }
     
     public func getUserEmailFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
-        return "(\(userInfo["email"]!)"
+        return "\(userInfo["email"]!)"
     }
     
     public func getUserFirstNameFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
-        return "(\(userInfo["first_name"]!)"
+        return "\(userInfo["first_name"]!)"
     }
     
     public func getUserLastNameFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
-        return "(\(userInfo["last_name"]!)"
+        return "\(userInfo["last_name"]!)"
     }
     
     public func getFacebookProfileImageUrl(facebookId: String?, profileImage: UIImage) -> UIImage? {
