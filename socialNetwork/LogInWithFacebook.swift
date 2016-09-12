@@ -78,8 +78,8 @@ public class LogInWithFacebook {
     }
 
     
-    public func getFacebookId() -> String {
-        return userId as! String
+    public func getFacebookId() -> Int {
+        return userId as! Int
     }
     
     public func getFacebookEmail() -> String {
