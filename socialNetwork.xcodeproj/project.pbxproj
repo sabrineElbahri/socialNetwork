@@ -13,6 +13,8 @@
 		CC89EC231D842B800006D761 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89EB9B1D830F910006D761 /* FacebookLogin.framework */; };
 		CC89EC241D842B800006D761 /* FacebookShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89EB9C1D830F910006D761 /* FacebookShare.framework */; };
 		CCBDA7381D8449D7004A5EA3 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89EC141D8344280006D761 /* SVProgressHUD.framework */; };
+		CCBDA74E1D846179004A5EA3 /* LogInWithFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBDA74D1D846179004A5EA3 /* LogInWithFacebook.swift */; };
+		CCBDA7501D869D8B004A5EA3 /* FacebookAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBDA74F1D869D8B004A5EA3 /* FacebookAppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		CC89EB9F1D830F910006D761 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Carthage/Build/iOS/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		CC89EBAA1D8320050006D761 /* PrintingSomething.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrintingSomething.swift; path = ../PrintingSomething.swift; sourceTree = "<group>"; };
 		CC89EC141D8344280006D761 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		CCBDA74D1D846179004A5EA3 /* LogInWithFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInWithFacebook.swift; sourceTree = "<group>"; };
+		CCBDA74F1D869D8B004A5EA3 /* FacebookAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				CC89EBAA1D8320050006D761 /* PrintingSomething.swift */,
+				CCBDA74D1D846179004A5EA3 /* LogInWithFacebook.swift */,
+				CCBDA74F1D869D8B004A5EA3 /* FacebookAppDelegate.swift */,
 				CC89EB861D82F7440006D761 /* socialNetwork.h */,
 				CC89EB881D82F7440006D761 /* Info.plist */,
 			);
@@ -166,6 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC89EBAB1D8320050006D761 /* PrintingSomething.swift in Sources */,
+				CCBDA74E1D846179004A5EA3 /* LogInWithFacebook.swift in Sources */,
+				CCBDA7501D869D8B004A5EA3 /* FacebookAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
