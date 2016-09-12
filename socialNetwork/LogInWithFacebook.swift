@@ -14,15 +14,12 @@ import FacebookLogin
 
 public class LogInWithFacebook {
     
-    private var userId: String?
-    private var userEmail: String?
-    private var userFirstName: String?
-    private var userLastName: String?
+    private var userInfo: NSDictionary?
     
     
     public init() {}
     
-    public func login(vc: UIViewController) {
+    public func login(vc: UIViewController, completed: (userInfo: NSDictionary) -> Void) -> Void {
         
         let loginManager: LoginManager = LoginManager()
         
@@ -49,22 +46,7 @@ public class LogInWithFacebook {
                     switch result {
                     case .Success(let response):
                         
-                        debugPrint("id: \(response.dictionaryValue?["id"]!)")
-                        
-                        if let userId: String = "(\(response.dictionaryValue?["id"]!)" {
-                            self.userId = userId
-                        }
-                        if let userEmail: String = "(\(response.dictionaryValue?["email"]!)" {
-                            self.userEmail = userEmail
-                        }
-                        
-                        if let userFirstName: String = "(\(response.dictionaryValue?["first_name"]!)" {
-                            self.userFirstName = userFirstName
-                        }
-                        
-                        if let userLastName: String = "(\(response.dictionaryValue?["last_name"]!)" {
-                            self.userLastName = userLastName
-                        }
+                        completed(userInfo: response.dictionaryValue!)
                         
                         debugPrint("Graph Request Succeeded: \(response)")
                         debugPrint("dico : \(response.dictionaryValue)")
@@ -79,26 +61,24 @@ public class LogInWithFacebook {
             }
         }
     }
-
-    
-    public func getFacebookId() -> String {
-        return userId!
-        
-    }
-    
-    public func getFacebookEmail() -> String {
-        return userEmail!
-    }
-    
-    public func getFacebookFirstName() -> String {
-        return userFirstName!
-    }
-    
-    public func getFacebookLastName() -> String {
-        return userLastName!
-    }
     
 
+    public func getFacebookIdFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
+        return "(\(userInfo["id"]!)"
+    }
+    
+    public func getUserEmailFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
+        return "(\(userInfo["email"]!)"
+    }
+    
+    public func getUserFirstNameFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
+        return "(\(userInfo["first_name"]!)"
+    }
+    
+    public func getUserLastNameFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
+        return "(\(userInfo["last_name"]!)"
+    }
+    
     public func getFacebookProfileImageUrl(facebookId: String?, profileImage: UIImage) -> UIImage? {
         if facebookId != nil {
             let url =  NSURL(string: "http://graph.facebook.com/\(facebookId!)/picture?type=normal")
