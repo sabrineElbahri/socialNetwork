@@ -95,7 +95,7 @@ public class LogInWithFacebook {
     }
     
 
-    public func getFacebookProfileImageUrl(facebookId: Int?, profileImage: UIImage) -> UIImage? {
+    public func getFacebookProfileImageUrl(facebookId: String?, profileImage: UIImage) -> UIImage? {
         if facebookId != nil {
             let url =  NSURL(string: "http://graph.facebook.com/\(facebookId!)/picture?type=normal")
             
@@ -109,7 +109,7 @@ public class LogInWithFacebook {
         return nil
     }
     
-    public func getFacebookProfileImageUrlAsync(facebookId: Int?, completed: (image: UIImage) -> Void) -> Void {
+    public func getFacebookProfileImageUrlAsync(facebookId: String?, completed: (image: UIImage) -> Void) -> Void {
         if facebookId != nil {
             let url =  NSURL(string: "http://graph.facebook.com/\(facebookId!)/picture?type=normal")
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {

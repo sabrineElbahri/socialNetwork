@@ -15,6 +15,7 @@
 		CCBDA7381D8449D7004A5EA3 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89EC141D8344280006D761 /* SVProgressHUD.framework */; };
 		CCBDA74E1D846179004A5EA3 /* LogInWithFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBDA74D1D846179004A5EA3 /* LogInWithFacebook.swift */; };
 		CCBDA7501D869D8B004A5EA3 /* FacebookAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBDA74F1D869D8B004A5EA3 /* FacebookAppDelegate.swift */; };
+		CCBDA7641D86F314004A5EA3 /* LogOutWithFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBDA7631D86F314004A5EA3 /* LogOutWithFacebook.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CC89EC141D8344280006D761 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		CCBDA74D1D846179004A5EA3 /* LogInWithFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInWithFacebook.swift; sourceTree = "<group>"; };
 		CCBDA74F1D869D8B004A5EA3 /* FacebookAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAppDelegate.swift; sourceTree = "<group>"; };
+		CCBDA7631D86F314004A5EA3 /* LogOutWithFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutWithFacebook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			children = (
 				CC89EBAA1D8320050006D761 /* PrintingSomething.swift */,
 				CCBDA74D1D846179004A5EA3 /* LogInWithFacebook.swift */,
+				CCBDA7631D86F314004A5EA3 /* LogOutWithFacebook.swift */,
 				CCBDA74F1D869D8B004A5EA3 /* FacebookAppDelegate.swift */,
 				CC89EB861D82F7440006D761 /* socialNetwork.h */,
 				CC89EB881D82F7440006D761 /* Info.plist */,
@@ -174,6 +177,7 @@
 				CC89EBAB1D8320050006D761 /* PrintingSomething.swift in Sources */,
 				CCBDA74E1D846179004A5EA3 /* LogInWithFacebook.swift in Sources */,
 				CCBDA7501D869D8B004A5EA3 /* FacebookAppDelegate.swift in Sources */,
+				CCBDA7641D86F314004A5EA3 /* LogOutWithFacebook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
