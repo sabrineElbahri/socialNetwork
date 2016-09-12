@@ -49,20 +49,20 @@ public class LogInWithFacebook {
                     switch result {
                     case .Success(let response):
                         
-                        debugPrint("id: \(response.dictionaryValue?["id"])")
+                        debugPrint("id: \(response.dictionaryValue?["id"]!)")
                         
-                        if let userId: String = "(\(response.dictionaryValue?["id"])" {
+                        if let userId: String = "(\(response.dictionaryValue?["id"]!)" {
                             self.userId = userId
                         }
-                        if let userEmail: String = "(\(response.dictionaryValue?["email"])" {
+                        if let userEmail: String = "(\(response.dictionaryValue?["email"]!)" {
                             self.userEmail = userEmail
                         }
                         
-                        if let userFirstName: String = "(\(response.dictionaryValue?["first_name"])" {
+                        if let userFirstName: String = "(\(response.dictionaryValue?["first_name"]!)" {
                             self.userFirstName = userFirstName
                         }
                         
-                        if let userLastName: String = "(\(response.dictionaryValue?["last_name"])" {
+                        if let userLastName: String = "(\(response.dictionaryValue?["last_name"]!)" {
                             self.userLastName = userLastName
                         }
                         
