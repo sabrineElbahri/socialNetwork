@@ -54,7 +54,18 @@ public class LogInWithFacebook {
             }
         }
     }
+    
 }
+
+
+/*public func getFacebookProfileImageUrl(facebookId: Int?) -> UIImageView? {
+        if facebookId != nil {
+
+        } else {
+            return nil
+        }
+    
+} */
 
         
         
