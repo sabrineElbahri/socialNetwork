@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC5BB4171D903D14008AC98D /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5BB4161D903D14008AC98D /* Tools.swift */; };
 		CC89EB871D82F7440006D761 /* socialNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = CC89EB861D82F7440006D761 /* socialNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC89EBAB1D8320050006D761 /* PrintingSomething.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89EBAA1D8320050006D761 /* PrintingSomething.swift */; };
 		CC89EC221D842B800006D761 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89EB9A1D830F910006D761 /* FacebookCore.framework */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC5BB4161D903D14008AC98D /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		CC89EB831D82F7440006D761 /* socialNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = socialNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC89EB861D82F7440006D761 /* socialNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = socialNetwork.h; sourceTree = "<group>"; };
 		CC89EB881D82F7440006D761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		CC89EB851D82F7440006D761 /* socialNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				CC5BB4161D903D14008AC98D /* Tools.swift */,
 				CC89EBAA1D8320050006D761 /* PrintingSomething.swift */,
 				CCBDA74D1D846179004A5EA3 /* LogInWithFacebook.swift */,
 				CCBDA7631D86F314004A5EA3 /* LogOutWithFacebook.swift */,
@@ -178,6 +181,7 @@
 				CCBDA74E1D846179004A5EA3 /* LogInWithFacebook.swift in Sources */,
 				CCBDA7501D869D8B004A5EA3 /* FacebookAppDelegate.swift in Sources */,
 				CCBDA7641D86F314004A5EA3 /* LogOutWithFacebook.swift in Sources */,
+				CC5BB4171D903D14008AC98D /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
