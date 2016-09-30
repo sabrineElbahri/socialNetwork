@@ -12,10 +12,10 @@ import FacebookShare
 import FacebookCore
 import FacebookLogin
 
-public class LogOutWithFacebook {
+open class LogOutWithFacebook {
     public init() {}
     
-    public func logOut() {
+    open func logOut() {
         let loginManager = LoginManager()
         loginManager.logOut()
     }

@@ -13,18 +13,26 @@ import FacebookCore
 import FacebookLogin
 
 
-public class FacebookAppDelegate {
+open class FacebookAppDelegate {
     public init() {}
     
-    public func launchApplication(application: UIApplication, launchOption: [NSObject: AnyObject]?) -> Void {
-        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOption)
+    open func launch(_ application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Void {
+        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
-    public func didBecomeActiveApplication(application: UIApplication) -> Void {
+    
+    // swift 2
+    open func openUrl(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return SDKApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
+    //only for iOS 9.0 et + with swift3
+    @available(iOS 9.0, *)
+    open func openUrl(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
+        return SDKApplicationDelegate.shared.application(application, open: url, options: options)
+    }
+    
+    open func didBecomeActive(_ application: UIApplication) -> Void {
         AppEventsLogger.activate(application)
-    }
-    
-    public func openUrlApplication(application: UIApplication, openURL: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return ApplicationDelegate.shared.application(application, openURL: openURL, sourceApplication: sourceApplication, annotation: annotation)
     }
 }

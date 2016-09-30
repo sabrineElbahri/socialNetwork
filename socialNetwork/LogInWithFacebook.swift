@@ -12,46 +12,46 @@ import FacebookShare
 import FacebookCore
 import FacebookLogin
 
-public class LogInWithFacebook {
+open class LogInWithFacebook {
     
-    private var userInfo: NSDictionary?
+    fileprivate var userInfo: NSDictionary?
     
     public init() {}
     
-    public func login(vc: UIViewController, completed: (userInfo: NSDictionary?, cancelled: Bool, failed: Bool, declinePermissions: Bool) -> Void) -> Void {
+    open func login(_ vc: UIViewController, completed: @escaping (_ userInfo: NSDictionary?, _ cancelled: Bool, _ failed: Bool, _ declinePermissions: Bool) -> Void) -> Void {
         
         let loginManager: LoginManager = LoginManager()
         
-        loginManager.logIn([.PublicProfile, .Email], viewController: vc) { result -> Void in
+        loginManager.logIn([.publicProfile, .email], viewController: vc) { result -> Void in
             
             switch result {
-            case .Cancelled:
-                completed(userInfo: nil, cancelled: true, failed: false, declinePermissions: false)
+            case .cancelled:
+                completed(nil, true, false, false)
                 debugPrint("Cancelled")
-            case .Failed(let error):
-                completed(userInfo: nil, cancelled: false, failed: true, declinePermissions: false)
+            case .failed(let error):
+                completed(nil, false, true, false)
                 debugPrint("error : \(error)")
-            case .Success(let grantedPermissions, let declinedPermissions, _):
+            case .success(let grantedPermissions, let declinedPermissions, _):
                 debugPrint("granted permissions : \(grantedPermissions)")
                 debugPrint("declined permissions : \(declinedPermissions)")
 
                 if !declinedPermissions.isEmpty {
-                    completed(userInfo: nil, cancelled: false, failed: false, declinePermissions: true)
+                    completed(nil, false, false, true)
                 }
                 
                 let graphRequest: GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, email, first_name, last_name"], httpMethod: .GET)
                 
                 graphRequest.start { (httpResponse, result) -> Void in
                     switch result {
-                    case .Success(let response):
+                    case .success(let response):
                         
-                        completed(userInfo: response.dictionaryValue!, cancelled: false, failed: false, declinePermissions: false)
+                        completed(response.dictionaryValue! as NSDictionary?, false, false, false)
                         
                         debugPrint("Graph Request Succeeded: \(response)")
                         debugPrint("dico : \(response.dictionaryValue)")
                         
                         
-                    case .Failed(let error):
+                    case .failed(let error):
                         debugPrint("Graph Request Failed: \(error)")
                     }
                     
@@ -61,7 +61,7 @@ public class LogInWithFacebook {
         }
     }
     
-    public func loginWithCustomParameters(vc: UIViewController, readParameters: [String], requestParameters: [String : AnyObject],completed: (userInfo: NSDictionary?, cancelled: Bool, failed: Bool, declinePermissions: Bool) -> Void) -> Void {
+    open func loginWithCustomParameters(_ vc: UIViewController, readParameters: [String], requestParameters: [String : AnyObject],completed: @escaping (_ userInfo: NSDictionary?, _ cancelled: Bool, _ failed: Bool, _ declinePermissions: Bool) -> Void) -> Void {
         
         let loginManager: LoginManager = LoginManager()
         var readPermission: [ReadPermission]?
@@ -69,16 +69,16 @@ public class LogInWithFacebook {
         for string in readParameters {
             switch string {
             case "PublicProfile":
-                readPermission?.append(.PublicProfile)
+                readPermission?.append(.publicProfile)
                 break
             case "UserFriends":
-                readPermission?.append(.UserFriends)
+                readPermission?.append(.userFriends)
                 break
             case "Email":
-                readPermission?.append(.Email)
+                readPermission?.append(.email)
                 break
             default:
-                readPermission?.append(.Custom("\(string)"))
+                readPermission?.append(.custom("\(string)"))
                 break
             }
         }
@@ -86,29 +86,34 @@ public class LogInWithFacebook {
         loginManager.logIn(readPermission!, viewController: vc) { result -> Void in
             
             switch result {
-            case .Cancelled:
-                completed(userInfo: nil, cancelled: true, failed: false, declinePermissions: false)
+            case .cancelled:
+                completed(nil, true, false, false)
                 debugPrint("Cancelled")
-            case .Failed(let error):
-                completed(userInfo: nil, cancelled: false, failed: true, declinePermissions: false)
+            case .failed(let error):
+                completed(nil, false, true, false)
                 debugPrint("error : \(error)")
-            case .Success(let grantedPermissions, let declinedPermissions, _):
+            case .success(let grantedPermissions, let declinedPermissions, _):
                 debugPrint("granted permissions : \(grantedPermissions)")
                 debugPrint("declined : \(declinedPermissions)")
+                
+                if !declinedPermissions.isEmpty {
+                    
+                    completed(nil, false, false, true)
+                }
                 
                 let graphRequest: GraphRequest = GraphRequest(graphPath: "me", parameters: requestParameters, httpMethod: .GET)
                 
                 graphRequest.start { (httpResponse, result) -> Void in
                     switch result {
-                    case .Success(let response):
+                    case .success(let response):
                         
-                        completed(userInfo: response.dictionaryValue!, cancelled: false, failed: false, declinePermissions: false)
+                        completed(response.dictionaryValue! as NSDictionary?, false, false, false)
                         
                         debugPrint("Graph Request Succeeded: \(response)")
                         debugPrint("dico : \(response.dictionaryValue)")
                         
                         
-                    case .Failed(let error):
+                    case .failed(let error):
                         debugPrint("Graph Request Failed: \(error)")
                     }
                     
@@ -119,27 +124,27 @@ public class LogInWithFacebook {
     }
     
     
-    public func getFacebookIdFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
+    open func getFacebookIdFromUserInfoInTheCompletionHandlerFromLoginFunction(_ userInfo: NSDictionary) -> String {
         return "\(userInfo["id"]!)"
     }
     
-    public func getUserEmailFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
+    open func getUserEmailFromUserInfoInTheCompletionHandlerFromLoginFunction(_ userInfo: NSDictionary) -> String {
         return "\(userInfo["email"]!)"
     }
     
-    public func getUserFirstNameFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
+    open func getUserFirstNameFromUserInfoInTheCompletionHandlerFromLoginFunction(_ userInfo: NSDictionary) -> String {
         return "\(userInfo["first_name"]!)"
     }
     
-    public func getUserLastNameFromUserInfoInTheCompletionHandlerFromLoginFunction(userInfo: NSDictionary) -> String {
+    open func getUserLastNameFromUserInfoInTheCompletionHandlerFromLoginFunction(_ userInfo: NSDictionary) -> String {
         return "\(userInfo["last_name"]!)"
     }
     
-    public func getFacebookProfileImageUrl(facebookId: String?, profileImage: UIImage) -> UIImage? {
+    open func getFacebookProfileImageUrl(_ facebookId: String?, profileImage: UIImage) -> UIImage? {
         if facebookId != nil {
-            let url =  NSURL(string: "http://graph.facebook.com/\(facebookId!)/picture?type=normal")
+            let url =  URL(string: "http://graph.facebook.com/\(facebookId!)/picture?type=normal")
             
-            let data = NSData(contentsOfURL: url!)
+            let data = try? Data(contentsOf: url!)
             
             if data != nil {
                 return UIImage(data: data!)
@@ -149,14 +154,14 @@ public class LogInWithFacebook {
         return nil
     }
     
-    public func getFacebookProfileImageUrlAsync(facebookId: String?, completed: (image: UIImage) -> Void) -> Void {
+    open func getFacebookProfileImageUrlAsync(_ facebookId: String?, completed: @escaping (_ image: UIImage) -> Void) -> Void {
         if facebookId != nil {
-            let url =  NSURL(string: "http://graph.facebook.com/\(facebookId!)/picture?type=normal")
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                let data = NSData(contentsOfURL: url!)
+            let url =  URL(string: "http://graph.facebook.com/\(facebookId!)/picture?type=normal")
+            DispatchQueue.global(qos: .background).async {
+                let data = try? Data(contentsOf: url!)
                 
                 if data != nil {
-                    completed(image: UIImage(data: data!)!)
+                    completed(UIImage(data: data!)!)
                 }
             }
         }

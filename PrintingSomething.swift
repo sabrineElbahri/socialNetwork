@@ -10,17 +10,17 @@ import Foundation
 import UIKit
 import SVProgressHUD
 import FacebookShare
-import FacebookCore
 import FacebookLogin
+import FacebookCore
 
-public class PrintingSomething {
+open class PrintingSomething {
     
     public init () {
     }
     
-    public func youhou() -> Void {
+    open func youhou() -> Void {
         print("social network")
-        SVProgressHUD.showSuccessWithStatus("Social Network")
+        SVProgressHUD.showSuccess(withStatus: "Social Network")
     
     }
 }
