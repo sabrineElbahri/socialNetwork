@@ -18,7 +18,7 @@ open class LogInWithFacebook {
     
     public init() {}
     
-    open func login(_ vc: UIViewController, completed: @escaping (_ userInfo: NSDictionary?, _ cancelled: Bool, _ failed: Bool, _ declinePermissions: Bool) -> Void) -> Void {
+    open func login(_ vc: UIViewController, completed: @escaping (_ userInfo: NSDictionary?, _ cancelled: Bool, _ failed: Bool, _ isDeclinePermissions: Bool) -> Void) -> Void {
         
         let loginManager: LoginManager = LoginManager()
         
@@ -61,7 +61,7 @@ open class LogInWithFacebook {
         }
     }
     
-    open func loginWithCustomParameters(_ vc: UIViewController, readParameters: [String], requestParameters: [String : AnyObject],completed: @escaping (_ userInfo: NSDictionary?, _ cancelled: Bool, _ failed: Bool, _ declinePermissions: Bool) -> Void) -> Void {
+    open func loginWithCustomParameters(_ vc: UIViewController, readParameters: [String], requestParameters: [String : AnyObject],completed: @escaping (_ userInfo: NSDictionary?, _ cancelled: Bool, _ failed: Bool, _ isDeclinePermissions: Bool, _ declinePermission: Set<Permission>?) -> Void) -> Void {
         
         let loginManager: LoginManager = LoginManager()
         var readPermission: [ReadPermission]?
@@ -87,18 +87,17 @@ open class LogInWithFacebook {
             
             switch result {
             case .cancelled:
-                completed(nil, true, false, false)
+                completed(nil, true, false, false, nil)
                 debugPrint("Cancelled")
             case .failed(let error):
-                completed(nil, false, true, false)
+                completed(nil, false, true, false, nil)
                 debugPrint("error : \(error)")
             case .success(let grantedPermissions, let declinedPermissions, _):
                 debugPrint("granted permissions : \(grantedPermissions)")
                 debugPrint("declined : \(declinedPermissions)")
                 
                 if !declinedPermissions.isEmpty {
-                    
-                    completed(nil, false, false, true)
+                    completed(nil, false, false, true, declinedPermissions)
                 }
                 
                 let graphRequest: GraphRequest = GraphRequest(graphPath: "me", parameters: requestParameters, httpMethod: .GET)
@@ -107,11 +106,10 @@ open class LogInWithFacebook {
                     switch result {
                     case .success(let response):
                         
-                        completed(response.dictionaryValue! as NSDictionary?, false, false, false)
+                        completed(response.dictionaryValue! as NSDictionary?, false, false, false, nil)
                         
                         debugPrint("Graph Request Succeeded: \(response)")
                         debugPrint("dico : \(response.dictionaryValue)")
-                        
                         
                     case .failed(let error):
                         debugPrint("Graph Request Failed: \(error)")
