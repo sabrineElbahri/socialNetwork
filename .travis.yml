@@ -12,8 +12,6 @@ before_install:
 - sudo installer -pkg CartfileDiff.pkg -target /
 - rm "Carthage.pkg"
 - gem install xcpretty
-before_script:
-- carthage update --platform iOS --no-use-binaries
 script:
 - set -o pipefail
 - scripts/bootstrap-if-needed.sh
