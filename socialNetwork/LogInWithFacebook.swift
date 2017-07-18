@@ -22,8 +22,7 @@ open class LogInWithFacebook {
         
         let loginManager: LoginManager = LoginManager()
         
-        loginManager.logIn([.publicProfile, .email], viewController: vc) { result -> Void in
-            
+        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: vc) { result -> Void in
             switch result {
             case .cancelled:
                 completed(nil, true, false, false)
@@ -48,7 +47,7 @@ open class LogInWithFacebook {
                         completed(response.dictionaryValue! as NSDictionary?, false, false, false)
                         
                         debugPrint("Graph Request Succeeded: \(response)")
-                        debugPrint("dico : \(response.dictionaryValue)")
+                        debugPrint("dico : \(String(describing: response.dictionaryValue))")
                         
                         
                     case .failed(let error):
@@ -82,8 +81,8 @@ open class LogInWithFacebook {
                 break
             }
         }
-        
-        loginManager.logIn(readPermission!, viewController: vc) { result -> Void in
+                
+        loginManager.logIn(readPermissions: readPermission!, viewController: vc) { result -> Void in
             
             switch result {
             case .cancelled:
@@ -109,7 +108,7 @@ open class LogInWithFacebook {
                         completed(response.dictionaryValue! as NSDictionary?, false, false, false, nil)
                         
                         debugPrint("Graph Request Succeeded: \(response)")
-                        debugPrint("dico : \(response.dictionaryValue)")
+                        debugPrint("dico : \(String(describing: response.dictionaryValue))")
                         
                     case .failed(let error):
                         debugPrint("Graph Request Failed: \(error)")
