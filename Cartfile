@@ -1,3 +1,4 @@
 
 github "SVProgressHUD/SVProgressHUD"
-github "facebook/Facebook-sdk-swift"
+github "facebook/facebook-sdk-swift" "master"
+github "facebook/facebook-ios-sdk" "sdk-version-4.21.0"
