@@ -12,6 +12,7 @@ before_script:
 script:
 - set -o pipefail
 - xcodebuild build -workspace socialNetwork.xcworkspace -sdk iphonesimulator -scheme socialNetwork -configuration Debug -destination "platform=iOS Simulator,name=iPhone 5" -destination "platform=iOS Simulator,name=iPhone 7 Plus" | xcpretty -c
+notifications:
   email:
     recipients:
       - sabrine.elbahri@3ie.fr
