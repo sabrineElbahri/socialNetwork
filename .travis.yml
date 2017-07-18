@@ -13,7 +13,7 @@ before_install:
 - rm "Carthage.pkg"
 - gem install xcpretty
 before_script:
-- carthage bootstrap --platform iOS
+- carthage update --platform iOS --no-use-binarie
 script:
 - set -o pipefail
 - scripts/bootstrap-if-needed.sh
