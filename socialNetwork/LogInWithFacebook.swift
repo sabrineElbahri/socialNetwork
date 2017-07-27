@@ -18,7 +18,7 @@ public class LogInWithFacebook {
     
     public init() {}
     
-    public func login(vc: UIViewController, completed: (userInfo: NSDictionary?, cancelled: Bool, failed: Bool, declinePermissions: Bool) -> Void) -> Void {
+    public func login(vc: UIViewController, completed: (userInfo: NSDictionary?, cancelled: Bool, failed: Bool, declinePermissions: Bool, token: String?) -> Void) -> Void {
         
         let loginManager: LoginManager = LoginManager()
         
@@ -26,17 +26,17 @@ public class LogInWithFacebook {
             
             switch result {
             case .Cancelled:
-                completed(userInfo: nil, cancelled: true, failed: false, declinePermissions: false)
+                completed(userInfo: nil, cancelled: true, failed: false, declinePermissions: false, token: nil)
                 debugPrint("Cancelled")
             case .Failed(let error):
-                completed(userInfo: nil, cancelled: false, failed: true, declinePermissions: false)
+                completed(userInfo: nil, cancelled: false, failed: true, declinePermissions: false, token: nil)
                 debugPrint("error : \(error)")
             case .Success(let grantedPermissions, let declinedPermissions, _):
                 debugPrint("granted permissions : \(grantedPermissions)")
                 debugPrint("declined permissions : \(declinedPermissions)")
 
                 if !declinedPermissions.isEmpty {
-                    completed(userInfo: nil, cancelled: false, failed: false, declinePermissions: true)
+                    completed(userInfo: nil, cancelled: false, failed: false, declinePermissions: true, token: nil)
                 }
                 
                 let graphRequest: GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, email, first_name, last_name"], httpMethod: .GET)
@@ -45,7 +45,8 @@ public class LogInWithFacebook {
                     switch result {
                     case .Success(let response):
                         
-                        completed(userInfo: response.dictionaryValue!, cancelled: false, failed: false, declinePermissions: false)
+                        let token = AccessToken.current?.authenticationToken
+                        completed(userInfo: response.dictionaryValue!, cancelled: false, failed: false, declinePermissions: false, token: token)
                         
                         debugPrint("Graph Request Succeeded: \(response)")
                         debugPrint("dico : \(response.dictionaryValue)")
